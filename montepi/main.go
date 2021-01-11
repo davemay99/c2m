@@ -9,8 +9,20 @@ import (
 )
 
 func main() {
-	var niter int
-	niter, _ = strconv.Atoi(os.Args[1])
+	iterations := 500000
+	if len(os.Args) > 1 {
+		iterations, _ = strconv.Atoi(os.Args[1])
+	} else {
+		fmt.Println("Missing iterations argument, using default", iterations)
+	}
+
+	fmt.Printf("Iterations = %d\n\n", iterations)
+	fmt.Println("Starting multicore...")
+	fmt.Println("Starting single core...")
+	montepi(iterations)
+}
+
+func montepi(niter int) {
 	rnd := rand.New(rand.NewSource(time.Now().UnixNano()))
 	start := time.Now()
 	var count uint64
