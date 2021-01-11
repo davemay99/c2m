@@ -205,6 +205,10 @@ type Timeseries struct {
 	data     []datapoint
 }
 
+func NewTimeseries() *Timeseries {
+	return &Timeseries{}
+}
+
 func NewTimeseriesWithBase(base time.Time, sizeHint int) *Timeseries {
 	return &Timeseries{
 		baseTime: base,

@@ -37,7 +37,8 @@ func TestMetrics(t *testing.T) {
 		ts.Add(m.time, m.value)
 	}
 
-	fmt.Println(ts.base)
+	fmt.Println(ts.baseTime)
+	fmt.Println(ts.baseNano)
 	fmt.Println(ts.data)
 	fmt.Println(ts.BucketBy(5*time.Second, SUM))
 
